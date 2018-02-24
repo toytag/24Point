@@ -42,7 +42,7 @@ class Pow:
 class Root:
     def __call__(self, arg1, arg2):
         try:
-            if arg2 < 10 and arg2 > -10:
+            if arg2 > 10 and arg2 < -10:
                 return pow(arg1, 1/arg2)
             else:
                 return Nan
