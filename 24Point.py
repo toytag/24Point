@@ -1,10 +1,5 @@
+from itertools import permutations
 from operators import *
-
-def without(nls, *arg):
-    ls = nls.copy()
-    for i in arg:
-        ls.remove(i)
-    return ls
 
 
 class Point24:
@@ -14,12 +9,7 @@ class Point24:
         self.startTrying()
 
     def startTrying(self):
-        shuffles = [[a, b, c, d]
-                    for a in self.nls
-                    for b in without(self.nls, a)
-                    for c in without(self.nls, a, b)
-                    for d in without(self.nls, a, b, c)]
-        for nls in shuffles:
+        for nls in permutations(self.nls):
             for i in self.opls:
                 for j in self.opls:
                     for k in self.opls:
